@@ -1,0 +1,82 @@
+venvaskoritan@MacBook-Pro-Nikita psBLUP % /Users/askoritan/programming/psBLUP/venv/bin/python /Users/askoritan/prog
+ramming/psBLUP/chickpea_tsw_analysis_py.py
+##### Optimized Chickpea TSW psBLUP Analysis - Python Version ####
+Using improved rrBLUP with REML estimation for better R compatibility
+======================================================================
+Loading chickpea data...
+Raw data loaded:
+Phenotype data dimensions: (408, 73)
+Genotype data dimensions: (408, 6792)
+
+=============== Data Preparation ===============
+=============== Data Matching ===============
+Samples in phenotype data: 408
+Samples in genotype data: 408
+Common samples: 407
+Full data dimensions:
+SNP data: (407, 6792)
+TSW data: (407, 1)
+
+=============== Advanced SNP Filtering ===============
+Removing 150 SNPs with no variation
+After quality control: 6642 SNPs remaining
+
+=============== SNP Selection for Analysis ===============
+Using all 6642 remaining SNPs
+Final SNP data dimensions: (407, 6642)
+SNP missing values: 0
+
+=============== Creating Proximity Matrix ===============
+Proximity matrix created: (6642, 6642)
+Sparsity: 43.3% zeros
+
+=============== Running psBLUP and rrBLUP Analysis for TSW ===============
+Analysis parameters:
+  Runs: 10
+  L2 values: [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+  Training proportions: [0.4, 0.5, 0.6, 0.7]
+
+Analyzing TSW trait with 407 complete samples and 6642 SNPs
+
+--- Running Improved rrBLUP ---
+Processing improved rrBLUP Y variables:   0%|                                                | 0/1 [00:00<?, ?it/s]  Processing improved rrBLUP for variable: TSW
+Processing improved rrBLUP Y variables: 100%|████████████████████████████████████| 1/1 [1:19:50<00:00, 4790.76s/it]
+✓ Improved rrBLUP completed - Average accuracy: 0.809                                                              
+                                                                                                                   
+--- Running psBLUP ---
+Processing Y variables:   0%|                                                                | 0/1 [00:00<?, ?it/s]Processing variable: TSW
+                                                                                                                  /Users/askoritan/programming/psBLUP/venv/bin/python /Users/askoritan/programming/psBLUP/chickpea_tsw_analysis_py.py
+
+Processing Y variables: 100%|███████████████████████████████████████████████████| 1/1 [6:54:50<00:00, 24890.97s/it]
+✓ psBLUP completed - Best average accuracy: 0.824 (l2=30)                                                          
+                                                                                                                                                                                       
+====== CHICKPEA TSW ANALYSIS RESULTS ======                                                                                                                                            
+Average improved rrBLUP accuracy:      0.809
+Average Best psBLUP accuracy: 0.824
+Overall improvement:          +0.015
+✓ psBLUP shows improvement over improved rrBLUP
+
+psBLUP Performance by l2 value:
+  l2 =   1: 0.8024 (improvement: -0.0065)
+  l2 =  10: 0.8217 (improvement: +0.0128)
+  l2 =  20: 0.8237 (improvement: +0.0149)
+  l2 =  30: 0.8238 (improvement: +0.0149)
+  l2 =  40: 0.8232 (improvement: +0.0143)
+  l2 =  50: 0.8224 (improvement: +0.0135)
+  l2 =  60: 0.8216 (improvement: +0.0127)
+  l2 =  70: 0.8207 (improvement: +0.0118)
+  l2 =  80: 0.8199 (improvement: +0.0110)
+  l2 =  90: 0.8192 (improvement: +0.0103)
+  l2 = 100: 0.8184 (improvement: +0.0095)
+
+=============== ANALYSIS SUMMARY ===============
+Samples: 407
+SNPs used: 6642
+Analysis runs: 10
+Training proportions: 4
+L2 penalty values tested: 11
+Summary results saved to './output_chickpea_py/chickpea_tsw_python_summary.csv'
+Detailed psBLUP results saved to './output_chickpea_py/chickpea_tsw_psblup_detailed.csv'
+Detailed improved rrBLUP results saved to './output_chickpea_py/chickpea_tsw_rrblup_detailed.csv'
+
+✅ Optimized Chickpea TSW Analysis Complete (Python Version)
